@@ -1,0 +1,22 @@
+<h1>Enter Results for a New Game</h1>
+	<%= semantic_form_for(@game) do |f| %>
+		<div class="row">
+			<div class="span-6">
+				<%= f.input :date, :as => :string, :input_html => {:class => 'datepicker'}%>
+			</div>
+			<div class="span-6">
+				<%= f.input :location %>
+			</div>
+		</div>
+	<%= f.semantic_fields_for :results do |result| %>
+		<div class="row">
+			<div class="span-6">
+				<%= result.input :player_id, :as => :select, :collection  => Hash[Player.all.map{|p| [p.name, p.id]}] %>
+			</div>
+			<div class="span-6">
+				<%= result.input :score %>
+			</div>
+		</div>
+	<% end %>
+		<%= f.submit "Enter" %>
+	<% end %>

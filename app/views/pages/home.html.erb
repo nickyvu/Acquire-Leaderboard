@@ -1,0 +1,24 @@
+<h1 align="center">All time Leaderboard</h1>
+	<table class="table table-striped">
+ 		<% @players.each do |player| %>
+			<tr>
+				<td><%= player.name %></td>
+				<td><%= player.total_cash %></td>
+			</tr>
+		<% end %>
+	</table>
+	
+
+<h1 align="center">Most Recent Games</h1>
+	<% @games.each do |game| %>
+	<h3><%= game.date.strftime('%B %d, %Y')%> - <%= game.location %></h3>
+		<table class="table table-striped">
+			<% game.results.each do |result| %>
+			<tr>
+				<td><%= result.player.first_name %></td>
+				<td><%= result.score %></td>
+			</tr>
+			<% end %>
+		</table>
+		<% end %>
+			
