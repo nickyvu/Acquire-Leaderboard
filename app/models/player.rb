@@ -2,7 +2,7 @@ class Player < ActiveRecord::Base
   attr_accessible :first_name, :last_name
   has_many :results
   validates :first_name, :presence => true
-  validates :last_name, :presence  => true
+  validates :last_name, :presence  => true, :uniqueness => {:scope => :first_name}
   
   def name
     self.first_name + " " + self.last_name
