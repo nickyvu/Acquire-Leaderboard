@@ -11,7 +11,7 @@
 
 <h1 align="center">Most Recent Games</h1>
 	<% @games.each do |game| %>
-	<h3><%= game.date.strftime('%B %d, %Y')%> - <%= game.location %></h3>
+	<h3># <%= game.id %>: <%= game.date.strftime('%B %d, %Y')%> - <%= game.location %></h3>
 		<table class="table table-striped">
 			<% game.results.each do |result| %>
 			<tr>
@@ -19,6 +19,9 @@
 				<td><%= result.score %></td>
 			</tr>
 			<% end %>
+			<tr>
+				<td>Total Ending Cash</td>
+				<td><%= game.total_ending_cash %></td>
 		</table>
 		<% end %>
 			
