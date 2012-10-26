@@ -13,6 +13,10 @@ class Player < ActiveRecord::Base
     results.sum {|x| x.score}
   end
   
+  def per_game_average
+    self.total_cash / self.results.size unless self.results.size == 0
+  end
+  
   def self.sort_by_total_cash
     players = Player.all
     players.sort_by! {|p| p.total_cash}
