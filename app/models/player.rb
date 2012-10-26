@@ -5,7 +5,11 @@ class Player < ActiveRecord::Base
   validates :last_name, :presence  => true, :uniqueness => {:scope => :first_name}
   
   def name
-    self.first_name + " " + self.last_name
+    self.first_name + " " + self.last_initial
+  end
+  
+  def last_initial
+    self.last_name.chr.upcase
   end
   
   def total_cash
