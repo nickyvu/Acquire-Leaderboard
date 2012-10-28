@@ -8,6 +8,7 @@
 		<% end %>
 	</table>
 	
+	
 <h1 align="center">Per Game Average</h1>
 	<table class="table table-striped">
 		<% @players.each do |player| %>
@@ -23,7 +24,7 @@
 	<% @games.each do |game| %>
 	<h3># <%= game.id %>: <%= game.date.strftime('%B %d, %Y')%> - <%= game.location %></h3>
 		<table class="table table-striped">
-			<% game.results.each do |result| %>
+			<% game.sorted_results.each do |result| %>
 			<tr>
 				<td><%= result.player.name %></td>
 				<td><%= result.score %></td>

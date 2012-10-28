@@ -26,4 +26,6 @@ class Player < ActiveRecord::Base
     players.sort_by! {|p| p.total_cash}
     players.reverse!
   end
+  
+    
 end
